@@ -6,7 +6,7 @@ NDAS is a full-stack software application developed to streamline the generation
 
 NDAS processes common design information and distributes it to clients (i.e.: thermal-hydraulic design, piping design, pipe support design, drafting, plant simulator, etc.). The system also supports administrative tasks such as the generation of calculation templates, stress contour drawings, piping isometrics and hydraulic reports.
 
-## Access
+## Contribute to NDAS
 
 The NDAS code base is not accessible through public repositories. 
 
