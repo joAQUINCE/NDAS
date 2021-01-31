@@ -1,2 +1,6 @@
-# NDAS
-Nuclear Design Analysis Software
+# Nuclear Design Analysis Software (NDAS)
+
+Due to applicable exports controls regulations as
+
+[google.com] Google
+
