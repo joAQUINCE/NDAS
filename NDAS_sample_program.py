@@ -307,6 +307,7 @@ class piping_system:
                                     # Extend the segment list with two entries:
                                     # 1. The inferred 'FROM' node (using the ID from the previous entry) with an empty parameter dict.
                                     # 2. The new 'TO' node (from the current line) with an empty parameter dict.
+                                    
                                     # NOTE: This structure seems to explicitly create pairs, duplicating the 'from_node' ID reference. Review if this is the desired structure or if only the 'to_node' should be added here.
                                     self.raw_segment_parameter_list.extend([[from_node,{}],[line[16:19].strip(),{}]])
 
@@ -596,7 +597,7 @@ class piping_system:
 
     # Method to rotate/transform node coordinates based on plant-specific conventions.
     def axes_rotation(self,loadcase,plant_name):
-        # Check if the specified plant name is "hc" (Hope Creek). Hardcoded logic.
+        # Check if the specified plant name is "hc".
         if plant_name == "hc":
             # Extract the node IDs (first column) from the geometry data for the given load case. Add a new axis for hstack.
             node               =  self.loadcase_geometry_dic[loadcase][:,0][:,np.newaxis]
@@ -878,8 +879,8 @@ class piping_system:
 
         # --- Prepare Title Block Text Data ---
         # Top rows of text (plant, system, plot type, load case). Reshape for table input.
-        top_row = np.array(["HOPE CREEK GENERATING STATION",\
-                            "CRD HYDRAULIC SYSTEM MONITORING STATION",\
+        top_row = np.array(["GENERATING STATION",\
+                            "HYDRAULIC SYSTEM MONITORING STATION",\
                             "ISOMETRIC STRESS CONTOUR - MECHANICAL",\
                             f"{loadcase} LOADCASE"]) # Use dynamic loadcase name
         top_row = top_row[:,np.newaxis] # Convert to column vector.
@@ -1112,8 +1113,8 @@ class piping_system:
             plt.subplots_adjust(wspace=0, hspace=0)
 
             # --- Prepare Title Block Text --- (Modified for THOR)
-            top_row = np.array(["HOPE CREEK GENERATING STATION",\
-                                "CRD HYDRAULIC SYSTEM MONITORING STATION",\
+            top_row = np.array(["GENERATING STATION",\
+                                "HYDRAULIC SYSTEM MONITORING STATION",\
                                 "ISOMETRIC VIEW - THOR NODES",\ # Modified title
                                 f"{loadcase} LOADCASE"])
             top_row = top_row[:,np.newaxis]
@@ -1122,13 +1123,13 @@ class piping_system:
             second_row = np.array(["COMPANY NUCLEAR LLC"])[:,np.newaxis]
             array_list.append(second_row)
 
-            third_row = np.array(["MECHANICAL DESIGN ENGINEERING","HANCOCKS BRIDGE, N.J."])[:,np.newaxis]
+            third_row = np.array(["MECHANICAL DESIGN ENGINEERING","SITE LOCATION"])[:,np.newaxis]
             array_list.append(third_row)
 
             # Signature block (same as before).
             forth_row = np.array([["PREPARED BY:", "E. CASTILLO","SIGNATURE:","","DATE:",""],\
-                                  ["REVIEWED BY:", "E. APPIAH",  "SIGNATURE:","","DATE:",""],\
-                                  ["APPROVED BY:", "J. BOYER",    "SIGNATURE:","","DATE:",""]])
+                                  ["REVIEWED BY:", "REVIEWER NAME",  "SIGNATURE:","","DATE:",""],\
+                                  ["APPROVED BY:", "APPROVER NAME",    "SIGNATURE:","","DATE:",""]])
             array_list.append(forth_row)
 
             # Bottom title row (modified for THOR).
@@ -1730,10 +1731,6 @@ class piping_system:
             print(f"Error composing document from {master_path} and {doc2_path}: {e}")
 
 
-
-
-# In[7]:
-# Jupyter cell marker. --- Main Execution Block ---
 
 # Record the starting time for performance measurement.
 start_time = time.time() # Use a different variable name
