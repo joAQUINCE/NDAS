@@ -4,6 +4,8 @@
 
 NDAS is a full-stack software application developed to streamline the generation of calculations and other engineering documentation.
 
+To access the basic Python implementantion of NDAS, please navigate to the [sample program implementation.](https://github.com/joAQUINCE/NDAS/blob/main/NDAS_sample_program.py)
+
 NDAS processes common design information and distributes it to clients (i.e.: thermal-hydraulic design, piping design, pipe support design, drafting, plant simulator, etc.). The system also supports administrative tasks such as the generation of calculation templates, stress contour drawings, piping isometrics and hydraulic reports.
 
 ## Contribute to NDAS
