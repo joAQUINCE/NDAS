@@ -1,9 +1,3 @@
-# Shebang line: Specifies the script should be executed using the python interpreter found in the user's environment path.
-#!/usr/bin/env python
-
-# Encoding declaration: Specifies that the source file is encoded using UTF-8, allowing for Unicode characters.
-# coding: utf-8
-
 # Import libraries
 import numpy as np # Fundamental package for numerical computation (arrays, matrices, etc.).
 import time # Provides time-related functions, used here for timing execution.
